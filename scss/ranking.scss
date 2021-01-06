@@ -1,0 +1,83 @@
+@import "color";
+/*ranking*/
+#ranking {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: $near-white;
+  .content {
+    background-color: $near-white;
+    width: 80%;
+	height: 80%;
+	// display: flex;
+	// flex-direction: column;
+	// align-items: space-around;
+	// justify-content: center;
+    .page-title {
+		margin-bottom: 2rem;
+		width: 80%;
+		height: 10%;
+		margin-left: auto;
+		margin-right: auto;
+      h1 {
+        font-size: 1.5rem;
+        margin: 0 auto;
+        width: 30%;
+        height: 100%;
+        text-align: center;
+        color: $color3;
+        border-bottom: solid 10px $color1;
+        max-width: 200px;
+      }
+    }
+    ul {
+      background-color: $near-white;
+      height: 90%;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-direction: column;
+      li {
+        height: 10%;
+        .li-content {
+          display: flex;
+          flex-direction: row;
+          span {
+          }
+          .title {
+          }
+          .originator {
+          }
+        }
+      }
+      #ranking-1 {
+        div {
+          i {
+            color: gold;
+          }
+        }
+      }
+      #ranking-2 {
+        div {
+          i {
+            color: silver;
+          }
+        }
+      }
+      #ranking-3 {
+        div {
+          i {
+            color: $bronze;
+          }
+        }
+	  }
+    }
+  }
+}
+
+.rank {
+	font-weight: bold;
+}
