@@ -15,8 +15,7 @@ i,
 ul,
 ol,
 li {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   padding: 0;
   margin: 0;
 }
@@ -33,18 +32,9 @@ body header {
   width: 100%;
   height: 8vh;
   background-color: #ffcf32;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  align-items: center;
+  justify-content: center;
 }
 
 body header div {
@@ -76,17 +66,9 @@ body footer div {
 body footer div ul {
   width: 100%;
   height: 100%;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-justify-content: space-around;
-      -ms-flex-pack: distribute;
-          justify-content: space-around;
+  align-items: center;
+  justify-content: space-around;
 }
 
 body footer div ul li {
@@ -102,4 +84,3 @@ body footer div ul li i {
   color: #333333;
   margin: 0 auto;
 }
-/*# sourceMappingURL=default.css.map */
