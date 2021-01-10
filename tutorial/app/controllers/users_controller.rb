@@ -20,14 +20,14 @@ class UsersController < ApplicationController
   # GET /users/new
   def new
     @user = User.new
+    if logged_in?
+      redirect_to root_path
+    end
   end
   
   # GET /users/1/edit
   def edit
     @user = User.find(params[:id])
-  end
-  
-  def signup
   end
   
   # POST /users

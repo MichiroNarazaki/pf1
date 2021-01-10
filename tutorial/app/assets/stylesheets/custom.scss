@@ -319,3 +319,57 @@ input {
   }
   
   /*post_idea*/
+
+  /*login_page*/
+  #login {
+    width: 100%;
+    height: 100%;
+    .container {
+      width: 100%;
+      height: 100%;
+      ul {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        li {
+          width: 50%;
+          height: 60%;
+          image {
+
+          }
+        }
+      }
+    }
+  }
+
+/*log in or sign up page*/
+
+  .tab-wrap {
+    display: flex;
+    flex-wrap: wrap;
+}
+.tab-label {
+    color: White;
+    background: LightGray;
+    margin-right: 5px;
+    padding: 3px 12px;
+    order: -1;
+}
+.tab-content {
+    width: 100%;
+    display: none;
+}
+/* アクティブなタブ */
+.tab-switch:checked+.tab-label {
+    background: DeepSkyBlue;
+}
+.tab-switch:checked+.tab-label+.tab-content {
+     display: block;
+}
+/* ラジオボタン非表示 */
+.tab-switch {
+    display: none;
+}
