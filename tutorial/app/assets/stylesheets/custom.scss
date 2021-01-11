@@ -1,3 +1,4 @@
+@import "../../../../scss/color.scss";
 @import "../../../../scss/default.scss";
 /*fontawesome*/
 @import "font-awesome-sprockets";
@@ -309,37 +310,47 @@ input {
 	  height: 100px;
 	  margin-bottom: 5px;
 	}
-  }
-  
-  span.image {
-	margin-top: 10px;
-	input {
-	  border: 0;
-	}
-  }
-  
-  /*post_idea*/
+}
 
-  /*login_page*/
-  #login {
+span.image {
+  margin-top: 10px;
+	input {
+    border: 0;
+	}
+}
+
+/*post_idea*/
+
+/*login_page*/
+#login {
+  width: 100%;
+  height: 100%;
+  div {
     width: 100%;
     height: 100%;
-    .container {
-      width: 100%;
+    @media screen {
+      
+    }
+    ul {
       height: 100%;
-      ul {
-        height: 100%;
-        width: 100%;
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        li {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      li {
           width: 50%;
-          height: 60%;
-          image {
-
-          }
+          height: 100%;
+          text-align: left;
+          padding: 15% 5%;
+        }
+        #app-visual-login{
+          color: $color1;
+          font-weight: bold;
+          background-color: $color3;
+        }
+        #login-form{
+          background-color: $near-white;
         }
       }
     }
@@ -350,6 +361,10 @@ input {
   .tab-wrap {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    max-width: 80%;
+    margin: 0 auto;
 }
 .tab-label {
     color: White;
@@ -359,17 +374,30 @@ input {
     order: -1;
 }
 .tab-content {
-    width: 100%;
-    display: none;
+  display: none;
+  .btn {
+    background-color: $color1;
+  }
 }
 /* アクティブなタブ */
 .tab-switch:checked+.tab-label {
-    background: DeepSkyBlue;
+  background: $color1;
 }
 .tab-switch:checked+.tab-label+.tab-content {
-     display: block;
+  display: block;
+  // text-align: center;
 }
 /* ラジオボタン非表示 */
 .tab-switch {
     display: none;
+}
+.container {
+  margin: 0 auto;
+
+}
+.row {
+  margin: 0 auto;
+}
+.col-md-6{
+  margin: 0 auto;
 }
