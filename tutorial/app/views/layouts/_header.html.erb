@@ -1,8 +1,12 @@
   <header>
-    <div>
+    <div id="header-container">
       <%= link_to root_path do %>
-        <i class="fas fa-pen-square"></i>
+      <i class="fas fa-pen-square"></i>
       <% end %>
-      <%= link_to "Log out", logout_path, method: :delete %>
+      <div id="logout">
+        <%= link_to logout_path, method: :delete do%>
+        <i class="fas fa-sign-out-alt"></i>
+        <% end %>
+      </div>
     </div>
   </header>

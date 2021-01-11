@@ -60,6 +60,20 @@ p {
 
 /* header */
 
+
+header {
+  position: fixed;
+  z-index: 999;
+  #header-container{
+    width: 100%;
+    position: relative;
+    #logout {
+      position: absolute;
+      right: 5%;
+      top:0;
+    }
+  }
+}
 #logo {
   float: left;
   margin-right: 10px;
@@ -74,14 +88,6 @@ p {
 #logo:hover {
   color: #fff;
   text-decoration: none;
-}
-
-header {
-  color:red;
-  div {
-    i {
-    }
-  }
 }
 
 /* footer */
@@ -400,4 +406,9 @@ span.image {
 }
 .col-md-6{
   margin: 0 auto;
+}
+
+/*pagination*/
+div.pagination {
+  margin-bottom: 9vh;
 }
