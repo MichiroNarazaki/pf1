@@ -8,13 +8,15 @@ class MicropostsInterfaceTest < ActionDispatch::IntegrationTest
 
   test "micropost interface" do
     log_in_as(@user)
-    get root_path
-    assert_select 'div.pagination'
-    # 無効な送信
+    
+    get create_micropost_path
+    post microposts_path, params: { micropost: { content: "" } }
+    assert_select 'div#error_explanation'
+    get user_path(@user)
+    # 無効な送信した時投稿が増えていないか
     assert_no_difference 'Micropost.count' do
       post microposts_path, params: { micropost: { content: "" } }
     end
-    assert_select 'div#error_explanation'
     assert_select 'a[href=?]', '/?page=2'  # 正しいページネーションリンク
     # 有効な送信
     content = "This micropost really ties the room together"
