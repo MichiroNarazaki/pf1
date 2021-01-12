@@ -39,7 +39,8 @@ class UsersController < ApplicationController
       flash[:info] = "Please check your email to activate your account."
       redirect_to root_url
     else
-      render 'new'
+      redirect_to signup_path
+      flash[:danger] = "Invalid information to sign up"
     end
   end
   
@@ -48,7 +49,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     respond_to do |format|
-      if @user.update(user_params)##ここが失敗していた
+      if @user.update(user_params)
         flash[:success] = "Profile updated"
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
         format.json { render :show, status: :ok, location: @user }
