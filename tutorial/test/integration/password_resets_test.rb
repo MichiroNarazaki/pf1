@@ -65,7 +65,6 @@ class PasswordResetsTest < ActionDispatch::IntegrationTest
     get new_password_reset_path
     post password_resets_path,
          params: { password_reset: { email: @user.email } }
-
     @user = assigns(:user)
     @user.update_attribute(:reset_sent_at, 3.hours.ago)
     patch password_reset_path(@user.reset_token),
@@ -73,8 +72,8 @@ class PasswordResetsTest < ActionDispatch::IntegrationTest
                     user: { password:              "foobar",
                             password_confirmation: "foobar" } }
     assert_response :redirect
-    follow_redirect!
-    assert_match /expired/i, response.body
+    follow_redirect! #コントローラーが指示するリダイレクト先へ
+    assert_match /expired/i, response.body #expired という文字列があるかどうかをテストしている
   end
 
 end
