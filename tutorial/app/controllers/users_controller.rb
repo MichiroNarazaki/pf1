@@ -36,8 +36,8 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       @user.send_activation_email
+      redirect_to signup_path
       flash[:info] = "Please check your email to activate your account."
-      redirect_to root_url
     else
       redirect_to signup_path
       flash[:danger] = "Invalid information to sign up"

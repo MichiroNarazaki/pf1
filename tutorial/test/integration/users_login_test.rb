@@ -11,10 +11,9 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
     post login_path, params: { session: { email:    @user.email,
                                           password: "invalid" } }
     assert_not is_logged_in?
-    assert_template 'sessions/new'
+    assert_redirected_to signup_path
     assert_not flash.empty?
-    get root_path
-    assert flash.empty?
+    get signup_path
   end
   test "login with valid information followed by logout" do
     get login_path
@@ -37,13 +36,12 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
     assert_select "a[href=?]", user_path(@user), count: 0
   end
   test "login with invalid information" do
-    get login_path
-    assert_template 'sessions/new'
+    get signup_path
+    assert_template 'users/new'
     post login_path, params: { session: { email: "", password: "" } }
-    assert_template 'sessions/new'
+    assert_redirected_to signup_path
     assert_not flash.empty?
-    get root_path
-    assert flash.empty?
+    get signup_path
   end
 
   test "login with remembering" do
