@@ -2,7 +2,7 @@ class MicropostsController < ApplicationController
   before_action :logged_in_user, only: [:create, :destroy]
   before_action :correct_user,   only: :destroy
 
-  def create
+  def create    
     @micropost = current_user.microposts.build(micropost_params)
     @micropost.image.attach(params[:micropost][:image])
     if @micropost.save
@@ -20,6 +20,12 @@ class MicropostsController < ApplicationController
     redirect_to request.referrer || root_url
   end
 
+  def index
+    @microposts = Micropost.all
+    @micropost = Micropost.new
+    @like = Like.new
+  end
+  
   private
 
   def micropost_params
