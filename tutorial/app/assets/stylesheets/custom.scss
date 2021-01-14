@@ -134,6 +134,7 @@ $gray-medium-light: #eaeaea;
 /* miscellaneous */
 
 .debug_dump {
+  // display: block;//デバッグするときここいじる
   display: none;//デバッグするときここいじる
   position:fixed;
   bottom:8vh;
