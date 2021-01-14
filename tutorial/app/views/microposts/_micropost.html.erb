@@ -8,8 +8,14 @@
   <span class="timestamp">
     Posted <%= time_ago_in_words(micropost.created_at) %> ago.
     <% if current_user?(micropost.user) %>
-      <%= link_to "delete", micropost, method: :delete,
+    <%= link_to "delete", micropost, method: :delete,
                                        data: { confirm: "You sure?" } %>
     <% end %>
   </span>
+    <h3>いいね件数: <%= micropost.likes.count %></h3>
+    <% if current_user.already_liked?(micropost) %>
+      <%= button_to 'いいねを取り消す', micropost_like_path(micropost,id: current_user.id),method: :delete %>
+    <% else %>
+      <%= button_to 'いいね', micropost_likes_path(micropost) %>
+    <% end %>
 </li>

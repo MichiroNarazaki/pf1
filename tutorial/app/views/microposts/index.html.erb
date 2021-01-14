@@ -1,6 +1,4 @@
-<h1>いいねサンプル</h1>
-<hr>
-<h2>投稿一覧</h2>
+<h1>Home</h1>
 <% @microposts.each do |micropost| %>
 <a href="/users/<%= micropost.user.id %>"><%= micropost.user.email %></a>
 <p><a href="/microposts/<%= micropost.id %>"><%= micropost.content %></a></p>
