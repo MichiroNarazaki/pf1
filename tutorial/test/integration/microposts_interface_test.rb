@@ -37,4 +37,11 @@ class MicropostsInterfaceTest < ActionDispatch::IntegrationTest
     get user_path(users(:archer))
     assert_select 'a', text: 'delete', count: 0
   end
+  test "micropost home" do
+    log_in_as(@user)
+    get root_path
+    assert_select "section#timeline > div#idea > div#title"
+    assert_select "div#idea > div#thumbnail"
+    assert_select "div#judge > ul"
+  end
 end
