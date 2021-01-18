@@ -40,8 +40,8 @@ class MicropostsInterfaceTest < ActionDispatch::IntegrationTest
   test "micropost home" do
     log_in_as(@user)
     get root_path
-    assert_select "section#timeline > div#idea > div#title"
-    assert_select "div#idea > div#thumbnail"
-    assert_select "div#judge > ul"
+    assert_select "section.timeline > div.idea > div.title"
+    assert_select "div.idea > div.thumbnail"
+    assert_select "div.judge > ul"
   end
 end

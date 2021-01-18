@@ -6,35 +6,38 @@
   width: 100%;
   height: 100%;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
-  #idea {
+  flex-wrap: wrap;
+  .idea {
     box-sizing: border-box;
     padding: 2rem;
-    margin: 0 auto;
+    margin-right: auto;
+    margin-top: 2rem;
+    margin-left: auto;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    width: 90%;
-    height: 80%;
+    width: 30%;
+    height: 15%;
     box-shadow: 5% 5% 0 $color1;
     background-color: $color3;
     color: $color1;
     border-radius: 1.5rem;
-    #title {
+    .title {
       width: 100%;
       text-align: center;
     }
-    #thumbnail {
+    .thumbnail {
       margin: 0 auto;
       img {
         max-width: 100%;
         height: auto;
       }
     }
-    #detail {
+    .detail {
       padding: 1rem;
       width: 100%;
       text-align: left;
@@ -42,7 +45,7 @@
   }
 }
 
-#judge {
+.judge {
   height: 8vh;
   width: 100%;
   ul {
@@ -52,6 +55,7 @@
     align-items: flex-end;
     justify-content: space-around;
     padding-top: 0.5rem;
+    font-size: 50px;
     li {
       &:hover {
         opacity: 0.6;
@@ -59,12 +63,11 @@
       }
       .btn-icon {
         i {
-          font-size: 24px;
           display: table;
           width: 100%;
           text-align: center;
           &::before {
-            background-color: #fff;
+            // background-color: #fff;
             width: 6rem;
             height: 6rem;
             display: table-cell;
@@ -74,11 +77,11 @@
         }
       }
     }
-    .nop {
-      color: $nop;
-    }
-    .heart {
+    .heart-not-liked {
       color: $heart;
+    }
+    .heart-liked {
+      color: $near-white;
     }
   }
 }

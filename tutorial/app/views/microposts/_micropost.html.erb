@@ -1,23 +1,35 @@
-  <div id="idea">
-    <div id="title">【1番先輩っぽいのは誰だ？】第1回先輩王！！</div>
-    <div id="thumbnail">
-      <%= image_tag  "senpai-ou.png" %>
+  <div class="idea">
+    <div class="title">THIS IS TITLE</div>
+    <div class="user">
+      <%= link_to gravatar_for(micropost.user, size: 50), micropost.user %>
+      <div class="user-name"><%= link_to micropost.user.name, micropost.user %></div>
     </div>
-    <div id="detail">
-      一定時間を一人一人に与えて後輩と先輩がお出かけする。何人か先輩がいて誰が一番先輩っぽいことをできたかを争う。後輩が判定する。お金で解決する先輩。飲みに連れて行ってくれる先輩。旅行に連れて行ってくれる先輩などなどがいる。
+    <div class="thumbnail">
+      <%= image_tag micropost.display_image if micropost.image.attached? %>
     </div>
-  </div>
-  <div id="judge">
-    <ul>
-      <li class="heart">
-        <div class="btn-icon">
-          <i class="fas fa-heart"></i>
-        </div>
-      </li>
-      <li class="nop">
-        <div class="btn-icon">
-          <i class="fas fa-times"></i>
-        </div>
-      </li>
-    </ul>
+    <div class="detail">
+      <%= micropost.content %>
+    </div>
+    <div class="judge">
+      <ul>
+        <h5><%= micropost.likes.count %> liked</h5>
+        <% if current_user.already_liked?(micropost) %>
+        <%= button_to micropost_like_path(micropost,id: current_user.id),method: :delete do%>
+        <li class="heart-not-liked">
+          <div class="btn-icon">
+            <i class="fas fa-heart"></i>
+          </div>
+        </li>
+        <% end %>
+        <% else %>
+        <%= button_to micropost_likes_path(micropost) do %>
+        <li class="heart-liked">
+          <div class="btn-icon">
+            <i class="fas fa-heart"></i>
+          </div>
+        </li>
+        <% end %>
+        <%end%>
+      </ul>
+    </div>
   </div>
