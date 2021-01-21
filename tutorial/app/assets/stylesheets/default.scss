@@ -1,0 +1,83 @@
+@import 'color.scss';
+
+body,
+header,
+main,
+footer,
+div,
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+span,
+i,
+ul,
+ol,
+li {	
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+}
+body {
+  background-color: $near-white;
+  height: 100vh;
+  width: 100vw;
+  header {
+    width: 100%;
+    height: 8vh;
+    background-color: $color1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    div {
+      text-align: center;
+      i {
+        font-size: 60px;
+        color: $color3;
+        margin: 0 auto;
+      }
+    }
+  }
+  main {
+    padding-top: 7vh;
+    padding-bottom: 20vh;
+    width: 100%;
+    height: 84vh;
+  }
+  footer {
+    width: 100%;
+    height: 8vh;
+    background-color: $color1;
+    div {
+		height: 100%;
+      ul {
+		width: 100%;
+		height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        li {
+          height: 80%;
+          width: 20%;
+          text-align: center;
+          i {
+            font-size: 50px;
+            width: 100%;
+            height: 100%;
+            color: $color3;
+            margin: 0 auto;
+          }
+        }
+      }
+    }
+  }
+}

@@ -60,17 +60,16 @@ p {
 
 /* header */
 
-
 header {
   position: fixed;
   z-index: 999;
-  #header-container{
+  #header-container {
     width: 100%;
     position: relative;
     #logout {
       position: absolute;
       right: 5%;
-      top:0;
+      top: 0;
     }
   }
 }
@@ -136,9 +135,9 @@ $gray-medium-light: #eaeaea;
 
 .debug_dump {
   // display: block;//デバッグするときここいじる
-  display: none;//デバッグするときここいじる
-  position:fixed;
-  bottom:8vh;
+  display: none; //デバッグするときここいじる
+  position: fixed;
+  bottom: 8vh;
   text-align: center;
   height: 9vh;
   width: 50%;
@@ -247,7 +246,7 @@ input {
 }
 
 .field_with_errors {
-    background-color: #0000ff;
+  background-color: #0000ff;
   // @extend .has-error;
   .form-control {
     color: red;
@@ -283,51 +282,67 @@ input {
 /* microposts */
 
 .microposts {
-	list-style: none;
-	padding: 0;
-	li {
-	  padding: 10px 0;
-	  border-top: 1px solid #e8e8e8;
-	}
-	.user {
-	  margin-top: 5em;
-	  padding-top: 0;
-	}
-	.content {
-	  display: block;
-	  margin-left: 60px;
-	  img {
-		display: block;
-		padding: 5px 0;
-	  }
-	}
-	.timestamp {
-	  color: gray;
-	  display: block;
-	  margin-left: 60px;
-	}
-	.gravatar {
-	  float: left;
-	  margin-right: 10px;
-	  margin-top: 5px;
-	}
+  list-style: none;
+  padding: 0;
+  li {
+    padding: 10px 0;
+    border-top: 1px solid #e8e8e8;
   }
-  
-  aside {
-	textarea {
-	  height: 100px;
-	  margin-bottom: 5px;
-	}
+  .user {
+    margin-top: 5em;
+    padding-top: 0;
+  }
+  .content {
+    display: block;
+    margin-left: 60px;
+    img {
+      display: block;
+      padding: 5px 0;
+    }
+  }
+  .timestamp {
+    color: gray;
+    display: block;
+    margin-left: 60px;
+  }
+  .gravatar {
+    float: left;
+    margin-right: 10px;
+    margin-top: 5px;
+  }
+}
+
+aside {
+  textarea {
+    height: 100px;
+    margin-bottom: 5px;
+  }
 }
 
 span.image {
   margin-top: 10px;
-	input {
+  input {
     border: 0;
-	}
+  }
 }
 
 /*post_idea*/
+
+#post-idea {
+  width: 70%;
+  margin: 0 auto;
+}
+#micropost-form {
+  margin-top: 5%;
+  form {
+    width: 100%;
+    .field {
+      textarea {
+        height: 12rem;
+      }
+    }
+  }
+}
 
 /*login_page*/
 #login {
@@ -343,7 +358,6 @@ span.image {
     width: 100%;
     height: 100%;
     @media screen {
-      
     }
     ul {
       height: 100%;
@@ -353,39 +367,39 @@ span.image {
       justify-content: center;
       align-items: center;
       li {
-          width: 50%;
-          height: 100%;
-          text-align: left;
-          padding: 15% 5%;
-        }
-        #app-visual-login{
-          color: $color1;
-          font-weight: bold;
-          background-color: $color3;
-        }
-        #login-form{
-          background-color: $near-white;
-        }
+        width: 50%;
+        height: 100%;
+        text-align: left;
+        padding: 15% 5%;
+      }
+      #app-visual-login {
+        color: $color1;
+        font-weight: bold;
+        background-color: $color3;
+      }
+      #login-form {
+        background-color: $near-white;
       }
     }
   }
+}
 
 /*log in or sign up page*/
 
-  .tab-wrap {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    max-width: 80%;
-    margin: 0 auto;
+.tab-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  max-width: 80%;
+  margin: 0 auto;
 }
 .tab-label {
-    color: White;
-    background: LightGray;
-    margin-right: 5px;
-    padding: 3px 12px;
-    order: -1;
+  color: White;
+  background: LightGray;
+  margin-right: 5px;
+  padding: 3px 12px;
+  order: -1;
 }
 .tab-content {
   display: none;
@@ -394,25 +408,24 @@ span.image {
   }
 }
 /* アクティブなタブ */
-.tab-switch:checked+.tab-label {
+.tab-switch:checked + .tab-label {
   background: $color1;
 }
-.tab-switch:checked+.tab-label+.tab-content {
+.tab-switch:checked + .tab-label + .tab-content {
   display: block;
   // text-align: center;
 }
 /* ラジオボタン非表示 */
 .tab-switch {
-    display: none;
+  display: none;
 }
 .container {
   margin: 0 auto;
-
 }
 .row {
   margin: 0 auto;
 }
-.col-md-6{
+.col-md-6 {
   margin: 0 auto;
 }
 

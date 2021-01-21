@@ -1,35 +1,38 @@
   <div class="idea">
-    <div class="title">THIS IS TITLE</div>
-    <div class="user">
-      <%= link_to gravatar_for(micropost.user, size: 50), micropost.user %>
-      <div class="user-name"><%= link_to micropost.user.name, micropost.user %></div>
-    </div>
-    <div class="thumbnail">
-      <%= image_tag micropost.display_image if micropost.image.attached? %>
-    </div>
+    <h3 class="title">THIS IS TITLE</h3>
+    <ul class="user">
+      <li class="user-icon">
+        <%= link_to gravatar_for(micropost.user, size: 50), micropost.user %>
+      </li>
+      <li class="user-name"><%= link_to micropost.user.name, micropost.user %></li>
+      <li class="timestamp">
+        <%= time_ago_in_words(micropost.created_at) %> ago
+      </li>
+    </ul>
     <div class="detail">
       <%= micropost.content %>
     </div>
+    <% if micropost.image.attached? %>
+    <div class="thumbnail">
+      <%= image_tag micropost.display_image %>
+    </div>
+    <% end %>
     <div class="judge">
-      <ul>
-        <h5><%= micropost.likes.count %> liked</h5>
+      <h3>
         <% if current_user.already_liked?(micropost) %>
         <%= button_to micropost_like_path(micropost,id: current_user.id),method: :delete do%>
-        <li class="heart-not-liked">
-          <div class="btn-icon">
-            <i class="fas fa-heart"></i>
-          </div>
-        </li>
+        <span class="heart-liked btn-icon">
+          <i class="fas fa-heart"></i>
+        </span>
         <% end %>
         <% else %>
         <%= button_to micropost_likes_path(micropost) do %>
-        <li class="heart-liked">
-          <div class="btn-icon">
-            <i class="fas fa-heart"></i>
-          </div>
-        </li>
+        <span class="heart-not-liked btn-icon">
+          <i class="far fa-heart"></i>
+        </span>
         <% end %>
         <%end%>
-      </ul>
+        <%= micropost.likes.count %>
+      </h3>
     </div>
   </div>
