@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get "/help", to: "static_pages#help"
   get "/about", to: "static_pages#about"
   get "/contact", to: "static_pages#contact"
+  get "/ranking", to: "static_pages#ranking"
   resources :microposts, only: [:create, :destroy, :index] do
     resources :likes, only: [:create,:destroy]
   end

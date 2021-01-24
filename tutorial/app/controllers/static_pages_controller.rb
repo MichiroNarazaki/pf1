@@ -14,6 +14,9 @@ class StaticPagesController < ApplicationController
   def about
   end
 
+  def ranking
+    @all_ranks = Micropost.find(Like.group(:micropost_id).order('count(micropost_id) desc').limit(5).pluck(:micropost_id))
+  end
   def contact
   end
 
