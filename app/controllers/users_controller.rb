@@ -13,6 +13,10 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
     @user = User.find(params[:id])
+    if @user.guest && !current_user.guest
+      flash[:warning] = "アクセスできないページです"
+      redirect_to root_path
+    end
     redirect_to root_url and return unless @user.activated?
     @microposts = @user.microposts.paginate(page: params[:page], per_page: 10)
   end
@@ -37,10 +41,10 @@ class UsersController < ApplicationController
     if @user.save
       @user.send_activation_email
       redirect_to signup_path
-      flash[:info] = "Please check your email to activate your account."
+      flash[:info] = "アカウントを有効にするには、メールをご確認ください"
     else
       redirect_to signup_path
-      flash[:danger] = "Invalid information to sign up"
+      flash[:danger] = "無効な情報です"
     end
   end
   
@@ -50,7 +54,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     respond_to do |format|
       if @user.update(user_params)
-        flash[:success] = "Profile updated"
+        flash[:success] = "プロフィールを更新しました"
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
         format.json { render :show, status: :ok, location: @user }
       else
@@ -63,24 +67,9 @@ class UsersController < ApplicationController
   # DELETE /users/1.json
   def destroy
     User.find(params[:id]).destroy
-    flash[:success] = "User deleted"
+    flash[:success] = "ユーザーを削除しました"
     redirect_to users_url
   end
-
-  def following
-    @title = "Following"
-    @user  = User.find(params[:id])
-    @users = @user.following.paginate(page: params[:page])
-    render 'show_follow'
-  end
-
-  def followers
-    @title = "Followers"
-    @user  = User.find(params[:id])
-    @users = @user.followers.paginate(page: params[:page])
-    render 'show_follow'
-  end
-
 
   private
   
