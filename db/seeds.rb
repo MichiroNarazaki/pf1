@@ -6,19 +6,21 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 # メインのサンプルユーザーを1人作成する
-User.create!(name: "Example User",
-             email: "example@railstutorial.org",
+User.create!(name: "管理者",
+             email: "admin@example.com",
              password: "foobar",
              password_confirmation: "foobar",
              admin: true,
              activated: true,
+             guest: false,
              activated_at: Time.zone.now)
-User.create!(name: "Michael Example",
-             email: "michael@example.com",
+User.create!(name: "ゲスト",
+             email: "guest@example.com",
              password: "foobar",
              password_confirmation: "foobar",
-             admin: true,
+             admin: false,
              activated: true,
+             guest: true,
              activated_at: Time.zone.now)
 # 追加のユーザーをまとめて生成する
 3.times do |n|
@@ -30,6 +32,7 @@ User.create!(name: "Michael Example",
                password: password,
                password_confirmation: password,
                activated: true,
+               guest: false,
                activated_at: Time.zone.now)
 end
 # ユーザーの一部を対象にマイクロポストを生成する
