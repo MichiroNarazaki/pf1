@@ -12,6 +12,16 @@
     <div class="detail">
       <%= micropost.content %>
     </div>
+    <% if micropost.creater %>
+    <ul class="creater">
+      <li class="left">
+        やって欲しいクリエイター
+      </li>
+      <li class="right">
+        <%= micropost.creater %>
+      </li>
+    </ul>
+    <% end %>
     <% if micropost.image.attached? %>
     <div class="thumbnail">
       <%= image_tag micropost.display_image %>
@@ -20,7 +30,7 @@
     <div class="judge">
       <h3>
         <% if current_user.already_liked?(micropost) %>
-        <%= button_to micropost_like_path(micropost,id: current_user.id),method: :delete do%>
+        <%= button_to micropost_like_path(micropost, id: current_user.id), method: :delete do %>
         <span class="heart-liked btn-icon">
           <i class="fas fa-heart"></i>
         </span>
@@ -31,7 +41,7 @@
           <i class="far fa-heart"></i>
         </span>
         <% end %>
-        <%end%>
+        <% end %>
         <%= micropost.likes.count %>
       </h3>
     </div>

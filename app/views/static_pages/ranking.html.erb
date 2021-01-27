@@ -16,6 +16,16 @@
                         <%= micropost.title%>
                     </h2>
                     <h2 class="originator"><%= micropost.user.name %></h2>
+                    <% if micropost.creater %>
+                    <ul class="creater">
+                        <li class="left">
+                            やって欲しいクリエイター
+                        </li>
+                        <li class="right">
+                            <%= micropost.creater %>
+                        </li>
+                    </ul>
+                    <% end %>
                     <p><%= micropost.content %></p>
                 </div>
             </li>
