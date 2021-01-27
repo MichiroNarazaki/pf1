@@ -26,6 +26,12 @@ class MicropostsController < ApplicationController
     @like = Like.new
   end
 
+  def search
+    if params[:search].present?
+      @microposts = Micropost.search(params[:search])
+    end
+  end
+
   private
 
   def micropost_params

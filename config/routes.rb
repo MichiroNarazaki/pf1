@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get "/help", to: "static_pages#help"
   get "/about", to: "static_pages#about"
   get "/contact", to: "static_pages#contact"
+  get "/search", to: "microposts#search"
   resources :microposts, only: [:create, :destroy, :index] do
     resources :likes, only: [:create,:destroy]
   end

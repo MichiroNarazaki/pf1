@@ -66,7 +66,7 @@ header {
   #header-container {
     width: 100%;
     position: relative;
-    #logout {
+    #header-right {
       position: absolute;
       right: 5%;
       top: 0;
@@ -434,4 +434,24 @@ span.image {
 div.pagination {
   margin-bottom: 9vh;
   z-index: 1;
+}
+
+/* profile page logout */
+.profile-logout {
+  width:80%;
+  margin: 0 auto;
+  text-align: center;
+  font-weight: bold;
+  i {
+    font-size: 30px;
+  }
+}
+
+/* search */
+#search {
+  width:80%;
+  margin: 0 auto;
+  .submit {
+    width:30%;
+  }
 }

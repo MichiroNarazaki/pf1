@@ -3,9 +3,9 @@
       <%= link_to root_path do %>
       <i class="fas fa-pen-square"></i>
       <% end %>
-      <div id="logout">
-        <%= link_to logout_path, method: :delete do%>
-        <i class="fas fa-sign-out-alt"></i>
+      <div id="header-right">
+        <%= link_to create_micropost_path do %>
+        <i class="fas fa-edit"></i>
         <% end %>
       </div>
     </div>
