@@ -1,6 +1,10 @@
 class LikesController < ApplicationController
     def create
-        @like = current_user.likes.create(micropost_id: params[:micropost_id])
+        if current_user.guest
+            flash[:danger] = "いいねするには登録してください"
+        else
+            @like = current_user.likes.create(micropost_id: params[:micropost_id])
+        end
         redirect_back(fallback_location: root_path)
     end
     def destroy
