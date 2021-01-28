@@ -20,12 +20,6 @@ class MicropostsController < ApplicationController
     redirect_to request.referrer || root_url
   end
 
-  def index
-    @microposts = Micropost.all
-    @micropost = Micropost.new
-    @like = Like.new
-  end
-
   def search
     if params[:search].present?
       @microposts = Micropost.search(params[:search])
