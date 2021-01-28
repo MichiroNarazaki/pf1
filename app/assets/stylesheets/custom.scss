@@ -66,6 +66,12 @@ header {
   #header-container {
     width: 100%;
     position: relative;
+    svg {
+    
+      height: auto;
+      // width: 60px;
+      width: 50px;
+    }
     #header-right {
       position: absolute;
       right: 5%;
