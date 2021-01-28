@@ -1,0 +1,16 @@
+<h2>ゲストログイン中です</h2>
+<h2>登録してください</h2>
+<div>
+  <div class="tab-wrap">
+    <input id="TAB-01" type="radio" name="TAB" class="tab-switch" checked="checked" />
+    <label class="tab-label" for="TAB-01">Log in</label>
+    <div class="tab-content">
+      <%= render "new_login" %>
+    </div>
+    <input id="TAB-02" type="radio" name="TAB" class="tab-switch" />
+    <label class="tab-label" for="TAB-02">Sign up</label>
+    <div class="tab-content">
+      <%= render "new_signup" %>
+    </div>
+  </div>
+</div>

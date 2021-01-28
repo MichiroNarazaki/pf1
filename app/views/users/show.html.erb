@@ -1,44 +1,10 @@
 <% if @user.guest && current_user.guest %>
-<h2>ゲストログイン中です</h2>
-<h2>登録してください</h2>
-<div>
-  <div class="tab-wrap">
-    <input id="TAB-01" type="radio" name="TAB" class="tab-switch" checked="checked" />
-    <label class="tab-label" for="TAB-01">Log in</label>
-    <div class="tab-content">
-      <%= render  "new_login" %>
-    </div>
-    <input id="TAB-02" type="radio" name="TAB" class="tab-switch" />
-    <label class="tab-label" for="TAB-02">Sign up</label>
-    <div class="tab-content">
-      <%= render  "new_signup" %>
-    </div>
-  </div>
-</div>
+<%= render "show_if" %>
 <% else %>
-<% provide(:title, @user.name) %>
-<div class="row">
-  <aside class="col-md-4">
-    <section class="user_info">
-      <h1>
-        <%= gravatar_for @user %>
-        <%= @user.name %>
-      </h1>
-    </section>
-  </aside>
-  <div class="col-md-8">
-    <% if @user.microposts.any? %>
-    <h3>Microposts (<%= @user.microposts.count %>)</h3>
-    <ol class="microposts">
-      <%= render @microposts %>
-    </ol>
-    <%= will_paginate @microposts %>
-    <% end %>
-  </div>
-</div>
+<%= render "show_else" %>
 <% end %>
 <div class="profile-logout">
-  <%= link_to logout_path, method: :delete do%>
+  <%= link_to logout_path, method: :delete do %>
   <i class="fas fa-sign-out-alt"></i>
   <span>ログアウト</span>
   <% end %>
