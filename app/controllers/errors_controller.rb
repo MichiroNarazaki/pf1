@@ -12,14 +12,14 @@ class ErrorsController < ApplicationController
     if exception
       logger.info "Rendering 404 with exception: #{exception.message}"
     end
-    render template: "errors/404", status: 404, layout: "application"
+    render template: "errors/404", status: 404, layout: "error_layout"
   end
 
   def render_500(exception = nil)
     if exception
       logger.info "Rendering 500 with exception: #{exception.message}"
     end
-    render template: "errors/500", status: 500, layout: "application"
+    render template: "errors/500", status: 500, layout: "error_layout"
   end
 
   def show; raise request.env["action_dispatch.exception"]; end
