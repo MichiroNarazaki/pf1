@@ -348,7 +348,7 @@ span.image {
 }
 
 /*login_page*/
-#login {
+.login {
   width: 100%;
   height: 100%;
   div.alert {
@@ -378,13 +378,13 @@ span.image {
           padding: 1rem 0;
         }
       }
-      #app-visual-login {
+      .app-visual-login {
         color: $color3;
         font-weight: bold;
         background-color: white;
         text-align: center;
       }
-      #login-form {
+      .login-form {
         background-color: white;
       }
     }

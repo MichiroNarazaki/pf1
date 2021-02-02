@@ -1,8 +1,8 @@
 <body>
-  <section id="login">
+  <section class="login">
     <div>
       <ul>
-        <li id="app-visual-login">
+        <li class="app-visual-login">
           <div>
             <h3>動画ネタの掲示板YouIdea</h3>
             <%= image_tag "signup" %>
@@ -10,7 +10,7 @@
             <h3>リスナーとの新たな繋がりYouIdea</h3>
           </div>
         </li>
-        <li id="login-form">
+        <li class="login-form">
           <%flash.each do |message_type,message|%>
             <%= content_tag(:div,message,class: "alert alert-#{message_type}")%>
           <%end%>
