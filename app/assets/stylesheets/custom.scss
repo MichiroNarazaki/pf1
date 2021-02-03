@@ -7,14 +7,9 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-.container {
-  padding: 3rem 0;
-}
-
 section {
   overflow: auto;
 }
-
 textarea {
   resize: vertical;
 }
@@ -61,15 +56,19 @@ p {
 /* header */
 
 header {
-  position: fixed;
-  z-index: 999;
+  div {
+    text-align: center;
+    i {
+      font-size: 60px;
+      color: $black;
+      margin: 0 auto;
+    }
+  }
   #header-container {
     width: 100%;
     position: relative;
     svg {
-    
       height: auto;
-      // width: 60px;
       width: 50px;
     }
     #header-right {
@@ -89,7 +88,6 @@ header {
   padding-top: 9px;
   font-weight: bold;
 }
-
 #logo:hover {
   color: #fff;
   text-decoration: none;
@@ -101,9 +99,7 @@ footer {
   z-index: 999;
   position: fixed;
   bottom: 0;
-  margin-top: 45px;
   padding-top: 5px;
-  border-top: 1px solid #eaeaea;
   color: #777;
 }
 
@@ -149,7 +145,6 @@ $gray-medium-light: #eaeaea;
   width: 50%;
   clear: both;
   width: 100%;
-  // margin: 12vh 0;
   @include box_sizing;
 }
 /* sidebar */
@@ -222,7 +217,6 @@ aside {
     padding: 0;
   }
 }
-
 
 /* forms */
 
@@ -349,43 +343,80 @@ span.image {
 
 /*login_page*/
 .login {
+  // background-color: $white;
   width: 100%;
   height: 100%;
+  .brand-name {
+    font-family: "Yusei Magic", sans-serif;
+    text-align: center;
+  }
+  h1.brand-name {
+    margin-bottom: 3rem;
+  }
   div.alert {
     display: block;
     width: 100%;
     height: 3rem;
     line-height: 0;
   }
+  #guest-login {
+    margin-top: 4rem;
+    display: block;
+    color: black;
+    text-decoration: none;
+    text-align: center;
+    background-color: $blue;
+    padding: 1rem;
+  }
   div {
     width: 100%;
     height: 100%;
-    @media screen {
-    }
-    ul {
-      height: 100%;
-      width: 100%;
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      align-items: center;
-      li {
-        width: 50%;
+    @media screen and (max-width: 600px) {
+      .app-visual-login {
+        display: none;
+      }
+      ul {
         height: 100%;
-        text-align: left;
-        padding: 15% 5%;
-        h3 {
-          padding: 1rem 0;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        li {
+          width: 100%;
+          // height: 100%;
+          text-align: left;
+          padding: 5% 5%;
+          h3 {
+            padding: 1rem 0;
+          }
         }
       }
-      .app-visual-login {
-        color: $color3;
-        font-weight: bold;
-        background-color: white;
-        text-align: center;
+    }
+    @media screen and (min-width: 600px) {
+      ul {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        li {
+          width: 50%;
+          text-align: left;
+          padding: 5% 5%;
+          h3 {
+            padding: 1rem 0;
+          }
+        }
       }
-      .login-form {
-        background-color: white;
+    }
+    .app-visual-login {
+      color: $black;
+      font-weight: bold;
+      text-align: center;
+      img {
+        max-width: 80%;
       }
     }
   }
@@ -428,6 +459,7 @@ span.image {
 }
 .container {
   margin: 0 auto;
+  text-align: center;
 }
 .row {
   margin: 0 auto;
@@ -436,15 +468,9 @@ span.image {
   margin: 0 auto;
 }
 
-/*pagination*/
-div.pagination {
-  margin-bottom: 9vh;
-  z-index: 1;
-}
-
 /* profile page logout */
 .profile-logout {
-  width:80%;
+  width: 80%;
   margin: 0 auto;
   text-align: center;
   font-weight: bold;
@@ -455,10 +481,10 @@ div.pagination {
 
 /* search */
 #search {
-  width:80%;
+  width: 80%;
   margin: 0 auto;
   .submit {
-    width:30%;
+    width: 30%;
   }
 }
 /*404*/
@@ -468,7 +494,7 @@ error {
   height: 100%;
   .wrapper {
     img {
-      max-width:100%;
+      max-width: 100%;
     }
   }
 }
