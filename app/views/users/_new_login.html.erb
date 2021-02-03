@@ -1,19 +1,19 @@
-    <div class="container">
-        <h1>ログイン</h1>
-        <div class="row">
-            <div class="col-md-6 col-md-offset-3">
-                <%= form_with(url: login_path, scope: :session, local: true) do |f| %>
-                <%= f.label "メールアドレス" %>
-                <%= f.email_field :email, class: 'form-control' %>
-                <%= f.label "パスワード" %>
-                <%= link_to "(パスワードをお忘れですか?)", new_password_reset_path %>
-                <%= f.password_field :password, class: 'form-control' %>
-                <%= f.label :remember_me, class: "checkbox inline" do %>
-                <%= f.check_box :remember_me %>
-                <span>記憶させますか？</span>
-                <% end %>
-                <%= f.submit "ログイン", class: "btn" %>
-                <% end %>
-            </div>
+<div class="container">
+    <h1>ログイン</h1>
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <%= form_with(url: login_path, scope: :session, local: true) do |f| %>
+            <%= f.label "メールアドレス" %>
+            <%= f.email_field :email, class: 'form-control' %>
+            <%= f.label "パスワード" %>
+            <%= link_to "(パスワードをお忘れですか?)", new_password_reset_path %>
+            <%= f.password_field :password, class: 'form-control' %>
+            <%= f.label :remember_me, class: "checkbox inline" do %>
+            <%= f.check_box :remember_me %>
+            <span>記憶させますか？</span>
+            <% end %>
+            <%= f.submit "ログイン", class: "btn" %>
+            <% end %>
         </div>
     </div>
+</div>
