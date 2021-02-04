@@ -20,8 +20,6 @@ class Micropost < ApplicationRecord
     if search
       Micropost.where(["title LIKE ? OR content LIKE ? OR creater LIKE ?",
         "%#{search}%", "%#{search}%", "%#{search}%"])
-    # else
-    #   Micropost.all
     end
   end
 end

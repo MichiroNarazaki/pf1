@@ -9,7 +9,8 @@ class StaticPagesController < ApplicationController
   end
 
   def ranking
-    @all_ranks = Micropost.find(Like.group(:micropost_id).order('count(micropost_id) desc').limit(5).pluck(:micropost_id))
+    like_count_id = Like.group(:micropost_id).order('count(micropost_id) desc').limit(5).count(:micropost_id).keys
+    @feed_items = like_count_id.map{|id| Micropost.find(id)}
   end
 
   def create_micropost

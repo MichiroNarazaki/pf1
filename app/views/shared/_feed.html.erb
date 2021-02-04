@@ -2,5 +2,5 @@
 <section id="timeline">
   <%= render @feed_items %>
 </section>
-<%= will_paginate @feed_items, params: { controller: :static_pages, action: :home } %>
+<%= will_paginate @feed_items, params: params %>
 <% end %>
