@@ -492,9 +492,30 @@ span.image {
 /* search */
 #search {
   width: 80%;
+  min-width: 420px;
   margin: 0 auto;
+  .search_container {
+    box-sizing: border-box;
+    margin-bottom: 3rem;
+  }
+  .search_container input[type="text"] {
+    background: $search-light;
+    border: none;
+    height: 35px;
+  }
+  .search_container input[type="text"]:focus {
+    outline: 0;
+  }
+  h2 {
+    padding: 3rem 0;
+  }
   .submit {
-    width: 30%;
+    cursor: pointer;
+    border: none;
+    background: $search;
+    color: $white;
+    outline: none;
+    width: 6rem;
   }
 }
 /*404*/

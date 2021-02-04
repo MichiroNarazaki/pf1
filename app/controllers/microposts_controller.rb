@@ -22,7 +22,7 @@ class MicropostsController < ApplicationController
 
   def search
     if params[:search].present?
-      @microposts = Micropost.search(params[:search])
+      @feed_items = Micropost.search(params[:search])
     end
   end
 
