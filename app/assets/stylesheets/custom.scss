@@ -7,20 +7,10 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-section {
-  overflow: auto;
-}
 textarea {
   resize: vertical;
 }
 
-.center {
-  text-align: center;
-}
-
-.center h1 {
-  margin-bottom: 10px;
-}
 /* typography */
 
 h1,
@@ -461,15 +451,10 @@ span.image {
 }
 .tab-switch:checked + .tab-label + .tab-content {
   display: block;
-  // text-align: center;
 }
 /* ラジオボタン非表示 */
 .tab-switch {
   display: none;
-}
-.container {
-  margin: 0 auto;
-  text-align: center;
 }
 .row {
   margin: 0 auto;
@@ -480,12 +465,15 @@ span.image {
 
 /* profile page logout */
 .profile-logout {
-  width: 80%;
-  margin: 0 auto;
-  text-align: center;
+  margin: 2rem auto;
+  text-align: right;
   font-weight: bold;
-  i {
-    font-size: 30px;
+  a {
+    background-color: $green;
+    color: $white;
+    // i {
+    //   font-size: 30px;
+    // }
   }
 }
 
