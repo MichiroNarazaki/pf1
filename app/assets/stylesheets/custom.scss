@@ -343,6 +343,10 @@ span.image {
 
 /*login_page*/
 .login {
+  img.signup {
+    max-width: 350px;
+    width: 70%;
+  }
   width: 100%;
   height: 100%;
   .brand-name {
@@ -424,9 +428,6 @@ span.image {
       color: $black;
       font-weight: bold;
       text-align: center;
-      img {
-        max-width: 80%;
-      }
     }
   }
 }
