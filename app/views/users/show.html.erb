@@ -4,8 +4,11 @@
 <%= render "show_else" %>
 <% end %>
 <div class="profile-logout">
-  <%= link_to logout_path, method: :delete do %>
-  <i class="fas fa-sign-out-alt"></i>
-  <span>ログアウト</span>
+  <%= link_to logout_path,class:"btn", method: :delete do %>
+  <% if current_user.guest%>
+  <p>トップページへ</p>
+  <% else %>
+  <p>ログアウト</p>
+  <%end%>
   <% end %>
 </div>
