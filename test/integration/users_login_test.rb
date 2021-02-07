@@ -6,8 +6,7 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
   end
 
   test "login with valid email/invalid password" do
-    get login_path
-    assert_template 'sessions/new'
+    get signup_path
     post login_path, params: { session: { email:    @user.email,
                                           password: "invalid" } }
     assert_not is_logged_in?
@@ -16,7 +15,7 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
     get signup_path
   end
   test "login with valid information followed by logout" do
-    get login_path
+    get signup_path
     post login_path, params: { session: { email:    @user.email,
                                           password: 'password' } }
     assert is_logged_in?

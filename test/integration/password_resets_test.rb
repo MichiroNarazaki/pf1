@@ -73,7 +73,7 @@ class PasswordResetsTest < ActionDispatch::IntegrationTest
                             password_confirmation: "foobar" } }
     assert_response :redirect
     follow_redirect! #コントローラーが指示するリダイレクト先へ
-    assert_match /expired/i, response.body #expired という文字列があるかどうかをテストしている
+    assert_match /パスワードリセットの有効期限が切れました。/i, response.body #expired という文字列があるかどうかをテストしている
   end
 
 end
