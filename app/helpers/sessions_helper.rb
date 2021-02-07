@@ -8,6 +8,7 @@ module SessionsHelper
     cookies.permanent.signed[:user_id] = user.id
     cookies.permanent[:remember_token] = user.remember_token
   end
+
   def current_user
     if (user_id = session[:user_id])
       @current_user ||= User.find_by(id: user_id)
@@ -19,6 +20,9 @@ module SessionsHelper
         @current_user = user
       end
     end
+  end
+  def guest_user
+    @guest_user = User.find_by(id: 2) 
   end
 
   # 渡されたユーザーがカレントユーザーであればtrueを返す

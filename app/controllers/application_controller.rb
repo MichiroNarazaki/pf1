@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
       unless logged_in? && !current_user.guest
         store_location
         flash[:danger] = "ログインしてください"
-        redirect_to user_path(current_user)
+        redirect_to user_path(guest_user)
       end
     end
 end
