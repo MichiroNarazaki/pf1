@@ -2,7 +2,7 @@ require 'test_helper'
 
 class UserMailerTest < ActionMailer::TestCase
 
-  test "account_activation" do
+  test "account activation" do
     user = users(:michael)
     user.activation_token = User.new_token
     mail = UserMailer.account_activation(user)
@@ -14,7 +14,7 @@ class UserMailerTest < ActionMailer::TestCase
     assert_match CGI.escape(user.email),  mail.body.encoded
   end
 
-  test "password_reset" do
+  test "password reset" do
     user = users(:michael)
     user.reset_token = User.new_token
     mail = UserMailer.password_reset(user)

@@ -30,7 +30,11 @@ class UsersController < ApplicationController
   
   # GET /users/1/edit
   def edit
-    @user = User.find(params[:id])
+    if logged_in?
+      @user = User.find(params[:id])
+    else
+      flash[:info] = "アカウントを有効にするには、メールをご確認ください"
+    end
   end
   
   # POST /users

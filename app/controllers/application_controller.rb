@@ -3,10 +3,18 @@ class ApplicationController < ActionController::Base
   private
     # ユーザーのログインとゲストではないかを確認する
     def logged_in_user
-      unless logged_in? && !current_user.guest
+      #ログインしていない場合はsignupページにリダイレクト
+      if logged_in?
+        if current_user.guest
+          store_location
+          flash[:danger] = "ログインしてください"
+          redirect_to user_path(guest_user)
+        end
+        #ゲストログインをしている場合はゲストのuserページ(signupフォームがある)にリダイレクト
+      else
         store_location
         flash[:danger] = "ログインしてください"
-        redirect_to user_path(guest_user)
+        redirect_to signup_path
       end
     end
 end
