@@ -68,14 +68,14 @@ footer {
       width: 100%;
       height: 100%;
       display: flex;
-      align-items: center;
+      align-items:flex-end;
       justify-content: space-around;
       li {
         height: 80%;
         width: 20%;
         text-align: center;
         i {
-          font-size: 50px;
+          font-size: 30px;
           width: 100%;
           height: 100%;
           color: $white;
