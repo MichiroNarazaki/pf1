@@ -3,12 +3,14 @@
 <% else %>
 <%= render "show_else" %>
 <% end %>
+<% if current_user?(@user) %>
 <div class="profile-logout">
   <%= link_to logout_path,class:"btn", method: :delete do %>
-  <% if current_user.guest%>
-  <p>トップページへ</p>
-  <% else %>
-  <p>ログアウト</p>
-  <%end%>
+    <% if current_user.guest%>
+    <p>トップページへ</p>
+    <% else %>
+    <p>ログアウト</p>
+    <% end %>
   <% end %>
-</div>
+  </div>
+<% end %>
