@@ -88,9 +88,7 @@ posts = [{ 'title' => '【美容】肌綺麗選手権',
 users = User.order(:created_at).take(18)
 i = 0
 posts.each do |post|
-  title = post['title']
-  content = post['content']
-  users[i % user_num].microposts.create!(title: title, content: content)
+  users[i % user_num].microposts.create!(title: post['title'], content: post['content'])
   i += 1
 end
 

@@ -1,17 +1,24 @@
 class StaticPagesController < ApplicationController
   def home
-    redirect_to signup_path unless logged_in?
-    @micropost = current_user.microposts
-                             .build
-    @feed_items = current_user.feed
-                              .paginate(page: params[:page], per_page: 10)
+    # if !logged_in?
+    #   puts "うっひょおおおおおおおお"
+    #   puts "うっひょおおおおおおおお"
+    #   redirect_to signup_path
+    # end
+    # @microposts = @current_user.microposts
+    #                           .build
+    # @feed_items = @current_user.feed
+    #                            .paginate(page: params[:page],
+    #                                      per_page: 10)
+    last_id = Microposts.last.id
+    Micropost.where(id: 1..10)
   end
 
   def ranking
     like_count_id = Like.group(:micropost_id)
+                        .count(:micropost_id)
                         .order('count(micropost_id) desc')
                         .limit(5)
-                        .count(:micropost_id)
                         .keys
     @feed_items = like_count_id.map { |id| Micropost.find(id) }
   end
