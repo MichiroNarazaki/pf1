@@ -6,10 +6,12 @@
         <%= gravatar_for @user %>
         <%= @user.name %>
       </h1>
-      <%= link_to edit_user_path do %>
-        <h2>
-        編集
-        </h2>
+      <% if current_user?(@user) %>
+        <%= link_to edit_user_path do %>
+          <h2>
+          編集
+          </h2>
+        <% end %>
       <% end %>
     </section>
   </aside>

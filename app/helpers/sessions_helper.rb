@@ -2,6 +2,7 @@ module SessionsHelper
   def log_in(user)
     session[:user_id] = user.id
   end
+
   # ユーザーのセッションを永続的にする
   def remember(user)
     user.remember
@@ -15,34 +16,38 @@ module SessionsHelper
     elsif (user_id = cookies.signed[:user_id])
       # raise #テストがパスすればこの部分がテストされていないことがわかる
       user = User.find_by(id: user_id)
-      if user && user.authenticated?(:remember, cookies[:remember_token])
+      if user&.authenticated?(:remember, cookies[:remember_token])
         log_in user
         @current_user = user
       end
     end
   end
+
   def guest_user
-    @guest_user = User.find_by(id: 2) 
+    @guest_user = User.find_by(id: Settings.guest_id)
   end
 
   # 渡されたユーザーがカレントユーザーであればtrueを返す
   def current_user?(user)
     user && user == current_user
   end
+
   def logged_in?
-    !current_user.nil?
+    current_user.present?
   end
+
   def forget(user)
     user.forget
     cookies.delete(:user_id)
     cookies.delete(:remember_token)
   end
-  
+
   def log_out
     forget(current_user)
     session.delete(:user_id)
     @current_user = nil
   end
+
   # 記憶したURL（もしくはデフォルト値）にリダイレクト
   def redirect_back_or(default)
     redirect_to(session[:forwarding_url] || default)

@@ -1,8 +1,9 @@
 class LikesController < ApplicationController
-  before_action :logged_in_user, only: [:create, :destroy]
+  before_action :logged_in_user, only: %i[create destroy]
 
   def create
-    @like = current_user.likes.create(micropost_id: params[:micropost_id])
+    @like = current_user.likes
+                        .create(micropost_id: params[:micropost_id])
     redirect_back(fallback_location: root_path)
   end
 
