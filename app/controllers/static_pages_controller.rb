@@ -1,17 +1,13 @@
 class StaticPagesController < ApplicationController
   def home
-    # if !logged_in?
-    #   puts "うっひょおおおおおおおお"
-    #   puts "うっひょおおおおおおおお"
-    #   redirect_to signup_path
-    # end
-    # @microposts = @current_user.microposts
-    #                           .build
-    # @feed_items = @current_user.feed
-    #                            .paginate(page: params[:page],
-    #                                      per_page: 10)
-    last_id = Microposts.last.id
-    Micropost.where(id: 1..10)
+    if !logged_in?
+      redirect_to signup_path
+    end
+    @microposts = @current_user.microposts
+                              .build
+    @feed_items = @current_user.feed
+                               .paginate(page: params[:page],
+                                         per_page: 10)
   end
 
   def ranking
